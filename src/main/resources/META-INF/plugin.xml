@@ -1,18 +1,27 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.gongxuanzhang.kotlinspringwebgenerator</id>
-    <name>kotlin-spring-web-generator Template</name>
+    <name>Kotlin-Spring-Web-Generator</name>
     <vendor>gongxuanzhang</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.bundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.gongxuanzhang.kotlinspringwebgenerator.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
+
+
+    <actions>
+        <action id="generator.kotlin.code.action"
+                class="com.github.gongxuanzhang.kotlinspringwebgenerator.actions.GeneratorKotlinCode"
+                description="Generator kotlin mvc code"
+                popup="true"
+                icon="PluginIcons.aaa">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 
     <applicationListeners>
-        <listener class="com.github.gongxuanzhang.kotlinspringwebgenerator.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.gongxuanzhang.kotlinspringwebgenerator.listeners.MyApplicationActivationListener"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>
